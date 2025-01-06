@@ -1,0 +1,1 @@
+"# chatgpdeez"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/arealicehole/chatgpdeez.gitgit push -u origin main

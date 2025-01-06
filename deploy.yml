@@ -1,0 +1,31 @@
+version: "2.0"
+
+services:
+  discord-bot:
+    image: arealicehole/chatgpdeez:3.0
+      - port: 8080
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    discord-bot:
+      resources:
+        cpu:
+          units: 0.1  # Low CPU requirement
+        memory:
+          size: 128Mi  # Slightly more than peak usage observed
+        storage:
+          size: 1Gi  # Sufficient for small data storage
+  placement:
+    akash:
+      pricing:
+        discord-bot:
+          denom: uakt
+          amount: 50  # Adjust pricing based on your budget
+
+deployment:
+  discord-bot:
+    profile: discord-bot
+    count: 1
